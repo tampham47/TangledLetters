@@ -1,0 +1,61 @@
+﻿<phone:PhoneApplicationPage x:Class="Minim.GameSelectLevel"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                            xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+                            d:DesignHeight="768"
+                            d:DesignWidth="480"
+                            Orientation="Portrait"
+                            shell:SystemTray.IsVisible="True"
+                            mc:Ignorable="d">
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="DataTemplate1">
+            <Grid Width="254" Height="186">
+                <Image Width="254"
+                       Height="186"
+                       Margin="0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Source="{Binding Mode=OneWay}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="ImageSourceTemplate">
+            <StackPanel>
+                <Image Width="64"
+                       Height="64"
+                       HorizontalAlignment="Left"
+                       Source="{Binding Mode=OneWay}" />
+            </StackPanel>
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
+
+    <!--  LayoutRoot is the root grid where all page content is placed  -->
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Minim;component/Resources/MenuScreen/BackGround-ChoosePicture.png" Stretch="Uniform" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  TitlePanel contains the name of the application and page title  -->
+
+        <!--  ContentPanel - place additional content here  -->
+        <Grid x:Name="ContentPanel"
+              Grid.Row="1"
+              Margin="12,0,12,0">
+            <ListBox x:Name="imgListView"
+                     Width="254"
+                     Height="186"
+                     Margin="104,292,100,296"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     ItemsSource="{Binding ImageList}"
+                     ItemTemplate="{StaticResource DataTemplate1}"
+                     SelectionChanged="imgListView_SelectionChanged" />
+        </Grid>
+    </Grid>
+</phone:PhoneApplicationPage>

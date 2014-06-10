@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Minim.ConnectorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Minim"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Name="userControl"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <local:ToCenter x:Key="ToCenterConverter" />
+        <Style x:Key="LineStyleSwap" TargetType="Line">
+            <Setter Property="Stroke">
+                <Setter.Value>
+                    <RadialGradientBrush>
+                        <GradientStop Offset="0.653" Color="White" />
+                        <GradientStop Offset="0.89" Color="#FF261FFF" />
+                        <GradientStop Offset="0.013" Color="#FFE8FFFE" />
+                        <GradientStop Offset="0.521" Color="Red" />
+                    </RadialGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Fill" Value="{x:Null}" />
+            <Setter Property="StrokeThickness" Value="10" />
+        </Style>
+        <Storyboard x:Name="StaticAnimation" />
+
+    </UserControl.Resources>
+
+    <Line x:Name="connector"
+          Opacity="0.945"
+          Stroke="White"
+          StrokeDashArray="1 0"
+          StrokeDashCap="Round"
+          StrokeEndLineCap="Round"
+          StrokeStartLineCap="Round"
+          StrokeThickness="10"
+          Style="{StaticResource LineStyleSwap}"
+          X1="{Binding PosX1,
+                       Converter={StaticResource ToCenterConverter},
+                       ElementName=userControl,
+                       Mode=TwoWay}"
+          X2="{Binding PosX2,
+                       Converter={StaticResource ToCenterConverter},
+                       ElementName=userControl,
+                       Mode=TwoWay}"
+          Y1="{Binding PosY1,
+                       Converter={StaticResource ToCenterConverter},
+                       ElementName=userControl,
+                       Mode=TwoWay}"
+          Y2="{Binding PosY2,
+                       Converter={StaticResource ToCenterConverter},
+                       ElementName=userControl,
+                       Mode=TwoWay}" />
+</UserControl>

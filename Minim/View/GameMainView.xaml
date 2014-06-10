@@ -1,0 +1,133 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:Minim"
+	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:el="clr-namespace:Microsoft.Expression.Interactivity.Layout;assembly=Microsoft.Expression.Interactions"
+	mc:Ignorable="d"
+	x:Class="Minim.GameMainView"
+	d:DesignWidth="456" d:DesignHeight="535" Loaded="UserControl_Loaded" Width="480" Height="696">
+	<UserControl.Resources>			
+		<Storyboard x:Name="MoveAnimation"/>
+		<Storyboard x:Name="MoveAnimation2"/>
+		<Storyboard x:Name="DropAnimation"/>
+		<Storyboard x:Name="DropAnimation2"/>
+		<ControlTemplate x:Key="ButtonControlTemplate1" TargetType="Button">
+			<Grid>
+				<VisualStateManager.VisualStateGroups>
+					<VisualStateGroup x:Name="CommonStates">
+						<VisualStateGroup.Transitions>
+							<VisualTransition From="Pressed" GeneratedDuration="0:0:0.5" To="Normal">
+								<VisualTransition.GeneratedEasingFunction>
+									<CubicEase EasingMode="EaseOut"/>
+								</VisualTransition.GeneratedEasingFunction>
+							</VisualTransition>
+							<VisualTransition From="Normal" GeneratedDuration="0:0:0.5" To="Pressed">
+								<VisualTransition.GeneratedEasingFunction>
+									<CircleEase EasingMode="EaseOut"/>
+								</VisualTransition.GeneratedEasingFunction>
+							</VisualTransition>
+						</VisualStateGroup.Transitions>
+						<VisualState x:Name="Disabled"/>
+						<VisualState x:Name="Normal"/>
+						<VisualState x:Name="MouseOver"/>
+						<VisualState x:Name="Pressed">
+							<Storyboard>
+								<DoubleAnimation Duration="0" To="0.6" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image" d:IsOptimized="True"/>
+							</Storyboard>
+						</VisualState>
+					</VisualStateGroup>
+				</VisualStateManager.VisualStateGroups>
+				<Image x:Name="image" Margin="0" Source="/Minim;component/Resources/icon2.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Width="64"/>
+			</Grid>
+		</ControlTemplate>
+		<Storyboard x:Name="SuccessAnimation">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundFigure">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.17"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="backgroundFigure">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut" Amplitude="3"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="1.2">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut" Amplitude="3"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="backgroundFigure">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut" Amplitude="3"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="1.2">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut" Amplitude="3"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<ControlTemplate x:Key="ButtonControlTemplate2" TargetType="Button">
+			<Grid>
+				<VisualStateManager.VisualStateGroups>
+					<VisualStateGroup x:Name="CommonStates">
+						<VisualStateGroup.Transitions>
+							<VisualTransition From="Normal" GeneratedDuration="0:0:1">
+								<VisualTransition.GeneratedEasingFunction>
+									<CircleEase EasingMode="EaseOut"/>
+								</VisualTransition.GeneratedEasingFunction>
+							</VisualTransition>
+							<VisualTransition From="Pressed" GeneratedDuration="0:0:1">
+								<VisualTransition.GeneratedEasingFunction>
+									<ExponentialEase EasingMode="EaseOut"/>
+								</VisualTransition.GeneratedEasingFunction>
+							</VisualTransition>
+						</VisualStateGroup.Transitions>
+						<VisualState x:Name="Disabled"/>
+						<VisualState x:Name="Normal"/>
+						<VisualState x:Name="MouseOver"/>
+						<VisualState x:Name="Pressed">
+							<Storyboard>
+								<DoubleAnimation Duration="0" To="0.495" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image" d:IsOptimized="True"/>
+							</Storyboard>
+						</VisualState>
+					</VisualStateGroup>
+				</VisualStateManager.VisualStateGroups>
+				<Image x:Name="image" HorizontalAlignment="Left" Height="96" Margin="0" Source="/Minim;component/Resources/UIIcon/undo.png" Stretch="Fill" VerticalAlignment="Bottom" Width="96" RenderTransformOrigin="0.5,0.5">
+					<Image.RenderTransform>
+						<CompositeTransform ScaleX="-1"/>
+					</Image.RenderTransform>
+				</Image>
+			</Grid>
+		</ControlTemplate>
+    </UserControl.Resources>
+	<Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="480" Height="696">
+		<Canvas x:Name="parentCanvas" Margin="0" Canvas.ZIndex="1" Width="480" Height="696"/>
+		<Canvas Width="480" Height="696">
+			<Image x:Name="board1" Height="96" Source="/Minim;component/Resources/UIIcon/board.png" Stretch="Fill" Width="96" Canvas.Left="12" Canvas.Top="8"/>
+			<Image x:Name="board2" Height="96" Source="/Minim;component/Resources/UIIcon/board.png" Stretch="Fill" Width="96" Canvas.Top="104" Canvas.Left="12"/>
+			<Image x:Name="board3" Height="96" Source="/Minim;component/Resources/UIIcon/board.png" Stretch="Fill" Width="96" Canvas.Top="200" Canvas.Left="12"/>
+			<Image x:Name="board4" Height="96" Source="/Minim;component/Resources/UIIcon/board.png" Stretch="Fill" Width="96" Canvas.Top="296" Canvas.Left="12"/>
+			<Image x:Name="board5" Height="96" Source="/Minim;component/Resources/UIIcon/board.png" Stretch="Fill" Width="96" Canvas.Top="392" Canvas.Left="12"/>
+			<Image x:Name="board6" Height="96" Source="/Minim;component/Resources/UIIcon/board.png" Stretch="Fill" Width="96" Canvas.Top="488" Canvas.Left="12"/>
+			<Image x:Name="board7" Height="96" Source="/Minim;component/Resources/UIIcon/board.png" Stretch="Fill" Width="96" Canvas.Top="584" Canvas.Left="12"/>
+			<TextBox x:Name="txt1" Height="80" TextWrapping="Wrap" Text="TextBox" Canvas.Left="144" Canvas.Top="600" Width="136" Visibility="Collapsed" />
+			<TextBox x:Name="txt2" Height="80" TextWrapping="Wrap" Text="TextBox" Width="136" Canvas.Left="284" Canvas.Top="600" Visibility="Collapsed" />
+			<ScrollViewer Height="672" Width="132" Canvas.Left="8" Canvas.Top="8"/>
+			<Grid Height="535">
+				<Image x:Name="backgroundFigure" Opacity="0.17" RenderTransformOrigin="0.5,0.5" Source="/Minim;component/Resources/LevelIcon/Red-Flower-icon.png" VerticalAlignment="Bottom" Height="150" Margin="190,0,116,107">
+					<Image.RenderTransform>
+						<CompositeTransform/>
+					</Image.RenderTransform>
+				</Image>
+			</Grid>
+			<Button x:Name="btnHint" Content="Button" Canvas.Left="384" Canvas.Top="8" Template="{StaticResource ButtonControlTemplate1}" Click="btnHint_Click" Visibility="Collapsed"/>
+			<Button x:Name="btnNext" Content="Button" Canvas.Left="216" Canvas.Top="488" Template="{StaticResource ButtonControlTemplate2}" Click="btnNext_Click"/>
+		</Canvas>	
+	</Grid>	
+</UserControl>

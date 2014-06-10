@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{570FA348-5D07-4886-9346-39C7FBCEAD5E}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Minim</RootNamespace>
+    <AssemblyName>Minim</AssemblyName>
+    <SilverlightVersion>v4.0</SilverlightVersion>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Minim.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Minim.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Controls.Fxg" />
+    <Reference Include="Microsoft.Expression.Interactions" />
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Interactivity" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameLogic\Levels\Level10.cs" />
+    <Compile Include="GameLogic\Levels\Level4.cs" />
+    <Compile Include="GameLogic\Levels\Level2.cs" />
+    <Compile Include="GameLogic\Levels\Level1.cs" />
+    <Compile Include="GameLogic\Levels\Level3.cs" />
+    <Compile Include="GameLogic\Levels\Level5.cs" />
+    <Compile Include="GameLogic\Levels\Level6.cs" />
+    <Compile Include="GameLogic\Levels\Level7.cs" />
+    <Compile Include="GameLogic\Levels\Level8.cs" />
+    <Compile Include="GameLogic\Levels\Level9.cs" />
+    <Compile Include="GameLogic\Objects\Math.cs" />
+    <Compile Include="GameScreens\GameInstruction.xaml.cs">
+      <DependentUpon>GameInstruction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameScreens\GameMenu.xaml.cs">
+      <DependentUpon>GameMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameScreens\GamePlay.xaml.cs">
+      <DependentUpon>GamePlay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameScreens\GameSelectLevel.xaml.cs">
+      <DependentUpon>GameSelectLevel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ConnectorViewModel.cs" />
+    <Compile Include="ViewModel\PicturesViewModel.cs" />
+    <Compile Include="View\ConnectorView.xaml.cs">
+      <DependentUpon>ConnectorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GameMainView.xaml.cs">
+      <DependentUpon>GameMainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\BaseGameScreenViewModel.cs" />
+    <Compile Include="ViewModel\GameMainScreenViewModel.cs" />
+    <Compile Include="ViewModel\PointViewModel.cs" />
+    <Compile Include="View\PointView.xaml.cs">
+      <DependentUpon>PointView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="GameScreens\GameInstruction.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GameScreens\GameMenu.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GameScreens\GamePlay.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GameScreens\GameSelectLevel.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ConnectorView.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\GameMainView.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PointView.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LevelIcon\cloudy-day-icon.png" />
+    <Resource Include="Resources\LevelIcon\Earth.png" />
+    <Resource Include="Resources\LevelIcon\glasses_icon.png" />
+    <Resource Include="Resources\LevelIcon\mobile.png" />
+    <Resource Include="Resources\LevelIcon\School.png" />
+    <Resource Include="Resources\LevelIcon\Student.png" />
+    <Resource Include="Background.png" />
+    <Resource Include="ApplicationIcon.png" />
+    <Content Include="SplashScreenImage.jpg" />
+    <Content Include="icons\appbar.back.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\appbar.feature.settings.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\appbar.next.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\appbar.questionmark.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\appbar.refresh.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\TroGiup.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\LevelIcon\success.png" />
+    <Resource Include="Resources\LevelIcon\20091201171515!Golden_Chicken-icon.png" />
+    <Resource Include="Resources\LevelIcon\cartoon_chicken_st5.gif" />
+    <Resource Include="Resources\LevelIcon\dolphin_icon.jpg" />
+    <Resource Include="Resources\LevelIcon\icon-design-tutorial-drawing-a-pencil-icon.png" />
+    <Resource Include="Resources\LevelIcon\Pencil.png" />
+    <Resource Include="Resources\LevelIcon\Red-Flower-icon.png" />
+    <Resource Include="Resources\LevelIcon\SuperStock_1538R-50292.jpg" />
+    <Resource Include="Resources\LevelIcon\User-Rin-Sister-icon.png" />
+    <Resource Include="Resources\MenuScreen\BackGround-ChoosePicture.png" />
+    <Resource Include="Resources\MenuScreen\BackGround-HowTo.png" />
+    <Resource Include="Resources\MenuScreen\ButtonExit.png" />
+    <Resource Include="Resources\MenuScreen\ButtonHowTo.png" />
+    <Resource Include="Resources\MenuScreen\ButtonPlay.png" />
+    <Resource Include="Resources\MenuScreen\BackGroundMenu.png" />
+    <Resource Include="Resources\LevelIcon\dolphin_icon.png" />
+    <Resource Include="Resources\UIIcon\gtk-redo-rtl.png" />
+    <Resource Include="Resources\UIIcon\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\cake big.png" />
+    <Resource Include="Resources\cake slice1.png" />
+    <Resource Include="Resources\cake slice2.png" />
+    <Resource Include="Resources\cake1.png" />
+    <Resource Include="Resources\cake2.png" />
+    <Resource Include="Resources\candy green.png" />
+    <Resource Include="Resources\candy orange.png" />
+    <Resource Include="Resources\Cloudy-Daytime.png" />
+    <Resource Include="Resources\Cloudy-Nighttime.png" />
+    <Resource Include="Resources\Cloudy-Sky.png" />
+    <Resource Include="Resources\cream choco.png" />
+    <Resource Include="Resources\cream crazy.png" />
+    <Resource Include="Resources\cream funny.png" />
+    <Resource Include="Resources\cream happy ice.png" />
+    <Resource Include="Resources\cream pink.png" />
+    <Resource Include="Resources\cream1.png" />
+    <Resource Include="Resources\cream2.png" />
+    <Resource Include="Resources\cream3.png" />
+    <Resource Include="Resources\Dark-Moon.png" />
+    <Resource Include="Resources\Drizzle.png" />
+    <Resource Include="Resources\Hot-Sun.png" />
+    <Resource Include="Resources\icon1.png" />
+    <Resource Include="Resources\icon2.png" />
+    <Resource Include="Resources\LetterIcon\At-icon.png" />
+    <Resource Include="Resources\LetterIcon\Exclamation-mark-icon.png" />
+    <Resource Include="Resources\LetterIcon\Hash-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-A-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-B-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-C-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-D-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-E-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-F-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-G-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-H-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-I-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-J-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-K-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-L-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-M-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-N-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-O-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-P-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-Q-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-R-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-S-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-T-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-U-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-V-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-W-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-X-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-Y-icon.png" />
+    <Resource Include="Resources\LetterIcon\Letter-Z-icon.png" />
+    <Resource Include="Resources\LetterIcon\Math-divide-icon.png" />
+    <Resource Include="Resources\LetterIcon\Math-equal-icon.png" />
+    <Resource Include="Resources\LetterIcon\Math-greater-than-icon.png" />
+    <Resource Include="Resources\LetterIcon\Math-lower-than-icon.png" />
+    <Resource Include="Resources\LetterIcon\Math-minus-icon.png" />
+    <Resource Include="Resources\LetterIcon\Math-multiply-icon.png" />
+    <Resource Include="Resources\LetterIcon\Math-plus-icon.png" />
+    <Resource Include="Resources\LetterIcon\Number-0-icon.png" />
+    <Resource Include="Resources\LetterIcon\Number-1-icon.png" />
+    <Resource Include="Resources\LetterIcon\Number-2-icon.png" />
+    <Resource Include="Resources\LetterIcon\Number-3-icon.png" />
+    <Resource Include="Resources\LetterIcon\Number-4-icon.png" />
+    <Resource Include="Resources\LetterIcon\Number-5-icon.png" />
+    <Resource Include="Resources\LetterIcon\Number-6-icon.png" />
+    <Resource Include="Resources\LetterIcon\Number-7-icon.png" />
+    <Resource Include="Resources\LetterIcon\Number-8-icon.png" />
+    <Resource Include="Resources\LetterIcon\Number-9-icon.png" />
+    <Resource Include="Resources\LetterIcon\Question-mark-icon.png" />
+    <Resource Include="Resources\Lunar-Eclipse.png" />
+    <Resource Include="Resources\Meteor.png" />
+    <Resource Include="Resources\Overcast-Sky.png" />
+    <Resource Include="Resources\Snow.png" />
+    <Resource Include="Resources\Solar-Eclipse.png" />
+    <Resource Include="Resources\Thunder-Shower.png" />
+    <Resource Include="Resources\UIIcon\4030153549_467c42ec95.jpg" />
+    <Resource Include="Resources\UIIcon\4030910412_462ffb7823.jpg" />
+    <Resource Include="Resources\UIIcon\basket1.png" />
+    <Resource Include="Resources\UIIcon\basket1_1.png" />
+    <Resource Include="Resources\UIIcon\basket1_2.png" />
+    <Resource Include="Resources\UIIcon\basket1_full.png" />
+    <Resource Include="Resources\UIIcon\blackboard %281%29.png" />
+    <Resource Include="Resources\UIIcon\blackboard.png" />
+    <Resource Include="Resources\UIIcon\board.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\CakeIcon\" />
+    <Folder Include="SampleData\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+  <!--<Import Project="$(MSBuildExtensionsPath)\Microsoft\Expression\FXG Extension\CompileGraphics.targets" />-->
+</Project>
